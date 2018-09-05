@@ -1,7 +1,7 @@
-weather-docker-compose
+weathereader-docker-compose
 =========================
 
-Running weather development environment
+Running weathereader development environment
 
 ## Prepare environment
 Create a file `.env.docker` inside the file
