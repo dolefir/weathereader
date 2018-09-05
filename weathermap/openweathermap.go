@@ -98,7 +98,7 @@ func (wd *WeatherData) WeatherModel() *models.Weather {
 
 // GetWeatherByCityName ...
 func GetWeatherByCityName(name string) (*WeatherData, error) {
-	response, err := http.Get(fmt.Sprintf(fmt.Sprintf(baseURL, "q=%s&APPID=%s"), strings.Title(name), os.Getenv("APIKEY")))
+	response, err := http.Get(fmt.Sprintf(fmt.Sprintf(baseURL, "q=%s&APPID=%s&units=metric"), strings.Title(name), os.Getenv("APIKEY")))
 	if err != nil {
 		return nil, err
 	}

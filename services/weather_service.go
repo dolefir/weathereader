@@ -52,7 +52,7 @@ func sendEmail(name string, w *models.Weather) error {
 	m.SetHeader("From", "exm.no.reply@gmail.com")
 	m.SetHeader("To", name)
 	m.SetHeader("Subject", "Hello, that you weather :)")
-	m.SetBody("text/html", fmt.Sprintf("Weather for %s did changed!<br> Temperature: %.2f, characteristics: %s", w.CityName, w.Temp, w.Desc))
+	m.SetBody("text/html", fmt.Sprintf("Weather for %s did changed!<br> Temperature: %.2f °C, characteristics: %s", w.CityName, w.Temp, w.Desc))
 
 	d := gomail.NewDialer("smtp.gmail.com", 465, "exm.no.reply", "67Hu81HG7n12")
 	// Send email
