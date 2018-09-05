@@ -1,0 +1,229 @@
+---
+swagger: "2.0"
+info:
+  description: ""
+  version: "0.0.1"
+  title: "API"
+host: "localhost:5050"
+basePath: "/"
+schemes:
+- "http"
+paths:
+  /v1/auth/signup:
+    post:
+      tags:
+        - user
+      summary: Create new user
+      description: ""
+      operationId: "Create User"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "UserName"
+          in: "formData"
+          description: "User name"
+          required: true
+          type: "string"
+        - name: "Email"
+          in: "formData"
+          description: "User email"
+          required: true
+          type: "string"
+        - name: "Password"
+          in: "formData"
+          description: "User password"
+          required: true
+          type: "string"
+      responses:
+        '201':
+          description: "successful operation"
+          schema:
+            $ref: '#/definitions/User'
+        '302':
+          description: "User already exist"
+  /v1/auth/signin:
+    post:
+      tags:
+        - user
+      summary: Sing in
+      description: "Get a token"
+      operationId: "Sing in"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "Email"
+          in: "formData"
+          description: "User email"
+          required: true
+          type: "string"
+        - name: "Password"
+          in: "formData"
+          description: "User password"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: "successful operation"
+          schema:
+            $ref: '#/definitions/User'
+  /v1/users/{userId}:
+    get:
+      tags:
+      - "user"
+      summary: "Find user by ID"
+      description: "This can only be done by the logged in user."
+      operationId: "getUserById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: "path"
+        description: "ID of user to return"
+        required: true
+        type: "integer"
+        format: "uint"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/User"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "User not found"
+      security:
+        - api_key: []
+  /v1/weather:
+    get:
+      tags:
+      - "weather"
+      summary: "Find by city name weather"
+      description: "This can only be done by the logged in user."
+      operationId: "getWeathers"
+      produces:
+      - "application/json"
+      parameters:
+        - in: query
+          name: city
+          type: string
+          required: true
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Weather"
+        404:
+          description: "Weather not found"
+      security:
+        - api_key: []
+  /v1/weather/monitor:
+    get:
+      tags:
+      - "weather"
+      summary: "Find all weather by User"
+      description: "This can only be done by the logged in user."
+      operationId: "getWeatherByUser"
+      produces:
+      - "application/json"
+      responses:
+        202:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Weather"
+        404:
+          description: "Weather not found"
+      security:
+        - api_key: []
+  /v1/weather/monitor/{cityName}:
+    put:
+      tags:
+      - "weather"
+      summary: "Add city"
+      description: "This can only be done by the logged in user."
+      operationId: "putCityByName"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "cityName"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        201:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Weather"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "City not found"
+      security:
+        - api_key: []
+  /v1/weather/monitor/cities/{cityName}:
+    delete:
+      tags:
+      - "weather"
+      summary: "Delete city"
+      description: "This can only be done by the logged in user."
+      operationId: "deleteWeather"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "cityName"
+        in: "path"
+        description: "The name that needs to be deleted"
+        required: true
+        type: "string"
+      responses:
+        202:
+          description: "successful operation"
+        400:
+          description: "Invalid city name supplied"
+        404:
+          description: "City not found"
+      security:
+        - api_key: []
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "Authorization"
+    in: "header"                        
+definitions:
+  User:
+    type: "object"
+    required:
+      - "id"
+      - "user_name"
+      - "email"
+      - "password"
+    properties:
+      id:
+        type: integer
+        format: uint
+      user_name:
+        type: string
+      email:
+        type: string
+  Weather:
+    type: "object"
+    required:
+      - "id"
+    properties:
+      id:
+        type: integer
+        format: uint
+      city_name:
+        type: string
+      temp_max:
+        type: number
+        format: float64
+      temp:
+        type: number
+        format: float64
+      temp_min:
+        type: number
+        format: float64

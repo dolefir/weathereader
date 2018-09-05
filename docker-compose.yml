@@ -1,0 +1,44 @@
+version: '3.7'
+volumes:
+  postgres-data:
+    driver: local
+services:
+  app: 
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    ports: 
+      - "5050:5050"
+    volumes:
+      - ../weathereader:/go/src/github.com/simplewayUA/weathereader
+    stdin_open: true
+    tty: true
+    depends_on: 
+      - postgres
+      - swagger
+    env_file:
+      - .env.docker
+    environment:
+      PG_DBNAME: weatherserve
+      PG_PASSWORD: blank
+      PG_USER: weatherapp
+      PG_HOST: postgres
+  swagger:
+    build:
+      context: ./deploy/swagger.nginx
+    volumes:
+      - ./swagger.yaml:/usr/share/nginx/html/swagger.yaml
+    environment:
+      SWAGGER_JSON: /usr/share/nginx/html/swagger.yaml
+    ports:
+      - 8081:8080
+  postgres:
+    image: "postgres:alpine"
+    environment:
+      POSTGRES_DB: weatherserve
+      POSTGRES_PASSWORD: blank
+      POSTGRES_USER: weatherapp
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5433:5432

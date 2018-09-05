@@ -1,0 +1,67 @@
+hash: 0cb28aa99de75e5cd372d090ed659cf7498bde30177ffa04147957de0f5f5486
+updated: 2018-09-04T09:23:36.1545325Z
+imports:
+- name: github.com/dgrijalva/jwt-go
+  version: 0b96aaa707760d6ab28d9b9d1913ff5993328bae
+- name: github.com/gin-contrib/sse
+  version: 22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae
+- name: github.com/gin-gonic/gin
+  version: 500ebd9ea866c57427aeaddc31f374adedd4084b
+  subpackages:
+  - binding
+  - internal/json
+  - render
+- name: github.com/golang/protobuf
+  version: b27b920f9e71b439b873b17bf99f56467623814a
+  subpackages:
+  - proto
+- name: github.com/jinzhu/gorm
+  version: 32455088f24d6b1e9a502fb8e40fdc16139dbea8
+  subpackages:
+  - dialects/postgres
+- name: github.com/jinzhu/inflection
+  version: 04140366298a54a039076d798123ffa108fff46c
+- name: github.com/json-iterator/go
+  version: 1624edc4454b8682399def8740d46db5e4362ba4
+- name: github.com/lib/pq
+  version: 4ded0e9383f75c197b3a2aaa6d590ac52df6fd79
+  subpackages:
+  - hstore
+  - oid
+- name: github.com/mattn/go-isatty
+  version: 3fb116b820352b7f0c281308a4d6250c22d94e27
+- name: github.com/modern-go/concurrent
+  version: bacd9c7ef1dd9b15be4a9909b8ac7a4e313eec94
+- name: github.com/modern-go/reflect2
+  version: 94122c33edd36123c84d5368cfb2b69df93a0ec8
+- name: github.com/ugorji/go
+  version: e253f1f20942cb6dc505e504e8bbba4b7f434cb2
+  subpackages:
+  - codec
+- name: golang.org/x/sys
+  version: 2b024373dcd9800f0cae693839fac6ede8d64a8c
+  subpackages:
+  - unix
+- name: gopkg.in/alexcesaro/quotedprintable.v3
+  version: 2caba252f4dc53eaf6b553000885530023f54623
+- name: gopkg.in/go-playground/validator.v8
+  version: 5f1438d3fca68893a817e4a66806cea46a9e4ebf
+- name: gopkg.in/gomail.v2
+  version: 81ebce5c23dfd25c6c67194b37d3dd3f338c98b1
+- name: gopkg.in/yaml.v2
+  version: 5420a8b6744d3b0345ab293f6fcba19c978f1183
+testImports:
+- name: github.com/davecgh/go-spew
+  version: d8f796af33cc11cb798c1aaeb27a4ebc5099927d
+  subpackages:
+  - spew
+- name: github.com/pmezard/go-difflib
+  version: 792786c7400a136282c1664665ae0a8db921c6c2
+  subpackages:
+  - difflib
+- name: github.com/stretchr/testify
+  version: f35b8ab0b5a2cef36673838d662e249dd9c94686
+  subpackages:
+  - assert
+- name: gopkg.in/h2non/gock.v1
+  version: 4692cba4394f79372bfe85996501ad43db9d82e0
