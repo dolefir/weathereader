@@ -52,3 +52,19 @@ type TransformedUser struct {
 	UserName string `json:"User_name"`
 	Email    string `json:"Email"`
 }
+
+// UsersWithCityID ...
+func UsersWithCityID(id uint) ([]User, error) {
+	usercities, err := GetUserCities(id)
+	if err != nil {
+		panic(err)
+	}
+	var users []User
+	for _, v := range usercities {
+		users, err = GetAllUsersWithID(v.UserID)
+		if err != nil {
+			panic(err)
+		}
+	}
+	return users, nil
+}

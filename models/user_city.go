@@ -54,3 +54,15 @@ func GetUserCities(cityID uint) ([]UserCity, error) {
 	}
 	return usercities, nil
 }
+
+// GetAllUsersWithID ...
+func GetAllUsersWithID(userID uint) ([]User, error) {
+	var getDB = db.GetDB()
+	var users []User
+	var err error
+
+	if err = getDB.Where("id = ?", userID).Find(&users).Error; err != nil {
+		return nil, err
+	}
+	return users, nil
+}

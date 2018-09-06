@@ -22,8 +22,8 @@ func (w *Weather) Save() error {
 	return getDB.Save(w).Error
 }
 
-// FindByNameCity ...
-func FindByNameCity(n string) (*Weather, error) {
+// FindCityByItsName ...
+func FindCityByItsName(n string) (*Weather, error) {
 	var getDB = db.GetDB()
 	var weather Weather
 	var err error

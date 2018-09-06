@@ -19,7 +19,7 @@ func WeathersHandler(c *gin.Context) {
 
 	var weather *models.Weather
 	var err error
-	weather, err = models.FindByNameCity(qParam)
+	weather, err = models.FindCityByItsName(qParam)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError,
 			gin.H{"error": err.Error()})
@@ -63,7 +63,7 @@ func AddCityHandler(c *gin.Context) {
 		return
 	}
 
-	weather, err = models.FindByNameCity(cityName)
+	weather, err = models.FindCityByItsName(cityName)
 	if err != nil {
 		weather = weatherData.WeatherModel()
 	}
@@ -128,7 +128,7 @@ func DeleteCityHandler(c *gin.Context) {
 	var user = &models.User{}
 
 	cityName := c.Param("city")
-	weather, err := models.FindByNameCity(cityName)
+	weather, err := models.FindCityByItsName(cityName)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
