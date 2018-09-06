@@ -24,7 +24,10 @@ func MonitorWeatherChanges() {
 			}
 			weather = weatherData.WeatherModel()
 			if !weather.IsEqual(&v) {
-				users, _ := models.UsersWithCityID(v.ID)
+				users, err := models.UsersWithCityID(v.ID)
+				if err != nil {
+					continue
+				}
 				for _, u := range users {
 					if err = sendEmail(u.Email, weather); err != nil {
 						continue
