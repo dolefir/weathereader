@@ -12,9 +12,6 @@ import (
 
 const baseURL string = "http://api.openweathermap.org/data/2.5/weather?%s"
 
-// APIKEY for example available, you can hide .evn
-// const APIKEY = os.Getenv("APIKEY")
-
 // Clouds ...
 type Clouds struct {
 	All int64 `json:"all"`
