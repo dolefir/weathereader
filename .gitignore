@@ -14,3 +14,4 @@ tmp
 .glide/
 vendor
 .env.docker
+.vscode
