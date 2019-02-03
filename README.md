@@ -18,4 +18,4 @@ docker-compose build
 docker-compose up
 ```
 
-- Now you can use swagger: <http://localhost:8081/>
+- And now you can use swagger: <http://localhost:8081/>
