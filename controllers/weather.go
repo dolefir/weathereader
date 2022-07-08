@@ -66,7 +66,7 @@ func AddCityHandler(c *gin.Context) {
 
 	weather, err = models.FindCityByItsName(cityName)
 	if err != nil {
-		weather = weatherData.WeatherModel()
+		weather = (*models.Weather)(weatherData.WeatherModel())
 	}
 	user.UserСities = models.GetUserWithWeather(user.ID, weather.ID)
 	// user save

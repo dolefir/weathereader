@@ -24,7 +24,7 @@ func MonitorWeatherChanges() {
 			if err != nil {
 				continue
 			}
-			weather = weatherData.WeatherModel()
+			weather = (*models.Weather)(weatherData.WeatherModel())
 			if !weather.IsEqual(&v) {
 				users, err := models.UsersWithCityID(v.ID)
 				if err != nil {
