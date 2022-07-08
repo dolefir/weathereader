@@ -3,11 +3,12 @@ package weathermap
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/simplewayUA/weathereader/models"
 	"io/ioutil"
 	"net/http"
 	"os"
 	"strings"
+
+	"github.com/dolefir/weathereader/models"
 )
 
 const baseURL string = "http://api.openweathermap.org/data/2.5/weather?%s"

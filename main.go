@@ -1,12 +1,12 @@
 package main
 
 import (
+	"github.com/dolefir/weathereader/controllers"
+	"github.com/dolefir/weathereader/db"
+	"github.com/dolefir/weathereader/middlewares"
+	"github.com/dolefir/weathereader/models"
+	"github.com/dolefir/weathereader/services"
 	"github.com/gin-gonic/gin"
-	"github.com/simplewayUA/weathereader/controllers"
-	"github.com/simplewayUA/weathereader/db"
-	"github.com/simplewayUA/weathereader/middlewares"
-	"github.com/simplewayUA/weathereader/models"
-	"github.com/simplewayUA/weathereader/services"
 )
 
 func main() {

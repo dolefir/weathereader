@@ -1,10 +1,11 @@
 package controllers
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/simplewayUA/weathereader/models"
 	"net/http"
 	"strconv"
+
+	"github.com/dolefir/weathereader/models"
+	"github.com/gin-gonic/gin"
 )
 
 // UserHandler ...

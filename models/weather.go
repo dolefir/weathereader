@@ -1,9 +1,10 @@
 package models
 
 import (
-	"github.com/jinzhu/gorm"
-	"github.com/simplewayUA/weathereader/db"
 	"strings"
+
+	"github.com/dolefir/weathereader/db"
+	"github.com/jinzhu/gorm"
 )
 
 // Weather model

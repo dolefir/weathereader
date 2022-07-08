@@ -1,11 +1,12 @@
 package controllers
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/simplewayUA/weathereader/middlewares"
-	"github.com/simplewayUA/weathereader/models"
-	"github.com/simplewayUA/weathereader/weathermap"
 	"net/http"
+
+	"github.com/dolefir/weathereader/middlewares"
+	"github.com/dolefir/weathereader/models"
+	"github.com/dolefir/weathereader/weathermap"
+	"github.com/gin-gonic/gin"
 )
 
 // WeathersHandler ...

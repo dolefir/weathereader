@@ -1,8 +1,9 @@
 package models
 
 import (
-	"github.com/simplewayUA/weathereader/db"
 	"time"
+
+	"github.com/dolefir/weathereader/db"
 )
 
 // User model

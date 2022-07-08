@@ -2,10 +2,12 @@ package services
 
 import (
 	"fmt"
-	"github.com/simplewayUA/weathereader/models"
-	"github.com/simplewayUA/weathereader/weathermap"
-	"gopkg.in/gomail.v2"
 	"time"
+
+	"gopkg.in/gomail.v2"
+
+	"github.com/dolefir/weathereader/models"
+	"github.com/dolefir/weathereader/weathermap"
 )
 
 // MonitorWeatherChanges ...

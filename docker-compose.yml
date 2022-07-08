@@ -10,7 +10,7 @@ services:
     ports: 
       - "5050:5050"
     volumes:
-      - ../weathereader:/go/src/github.com/simplewayUA/weathereader
+      - ../weathereader:/go/src/github.com/dolefir/weathereader
     stdin_open: true
     tty: true
     depends_on: 

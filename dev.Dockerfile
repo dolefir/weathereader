@@ -10,8 +10,8 @@ RUN apk --update-cache --allow-untrusted \
     go get github.com/pilu/fresh 
 
 
-COPY . $GOPATH/src/github.com/simplewayUA/weathereader
+COPY . $GOPATH/src/github.com/dolefir/weathereader
 
-WORKDIR $GOPATH/src/github.com/simplewayUA/weathereader
+WORKDIR $GOPATH/src/github.com/dolefir/weathereader
 
 CMD  go run main.go

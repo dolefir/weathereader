@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/simplewayUA/weathereader/db"
+	"github.com/dolefir/weathereader/db"
 )
 
 // GetUserWithEmail ...
